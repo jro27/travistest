@@ -1,0 +1,17 @@
+sudo: False
+
+language: python
+
+python:
+  - "2.7"
+  - "pypy"
+
+
+before_script:
+  - $(bash <(curl -L -s "http://tinyurl.com/getpyenv"))/setup-travis.sh
+
+script:
+  - pyb
+
+after_success:
+  - coveralls --verbose
